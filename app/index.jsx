@@ -1,15 +1,18 @@
 
 
+import { useState } from 'react';
 import { Image, Pressable, Text, TextInput, TouchableOpacity, View } from 'react-native';
-
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Button from './components/button';
-
 export default function index(){
+
+  const [email , setEmail] = useState('')
+  const [theme , setTheme] = useState('light')
   
+  console.log(email)
   return (
     <SafeAreaView style={{
-      backgroundColor: "green",
+      backgroundColor: theme == 'light' ? 'green' :'black',
       flex:0.9, 
       paddingHorizontal: 10
       }}>
@@ -21,9 +24,13 @@ export default function index(){
 
       <Image style={{width:500, height:200, alignSelf:'center'}} source={require('../assets/images/Capture2.png')}   />
 
-      <TextInput placeholderTextColor={'black'} 
-      placeholder='Enter email'
-      style={{backgroundColor:'white', height:50, marginTop:20, borderRadius:20,
+      <TextInput onChangeText={(text)=>{
+      setEmail(text)
+
+      
+      }}
+      placeholderTextColor={'black'} placeholder='Enter email'style=
+      {{backgroundColor:'white', height:70, marginTop:20, borderRadius:20,
         paddingHorizontal:20
       }}/>
 
@@ -31,10 +38,13 @@ export default function index(){
         <Text>Click me!</Text>
       </Pressable>
 
-      <TouchableOpacity onPress={() =>{
+      <TouchableOpacity onPress={() => setTheme('dark')}
+      //{
+
         //Alert.alert('Press', "I was clicked!")
-        console.log("I was clicked")
-      }} style={{backgroundColor:"orange", height:30,
+        //console.log("I was clicked")
+     // }}
+       style={{backgroundColor:"orange", height:30,
        borderRadius:8, justifyContent:"center"}}>
 
         <Text style={{alignSelf:"center", color:"white", fontSize:15}}>Enter</Text>
