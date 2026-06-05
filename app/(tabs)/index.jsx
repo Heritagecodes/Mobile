@@ -1,7 +1,7 @@
+import { router } from 'expo-router';
 import { useState } from 'react';
-import { Alert, Platform, Pressable, SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { Platform, Pressable, SafeAreaView, ScrollView, Text, View } from 'react-native';
 import Input from '../components/input';
-
 
 
 export default function Index(){
@@ -11,13 +11,18 @@ export default function Index(){
   console.log(email)
   console.log(Platform.OS)
   return (
-    <ScrollView>
+    
+    <ScrollView showsVerticalScrollIndicator={true}>
     <SafeAreaView style={{
       backgroundColor: theme ? 'off-white' : 'black',
       flex:1,
       paddingHorizontal: 10
     }}>
+      <View style={{backgroundColor:"red", height:300}}>
+        <Text>Hello World</Text>
+      </View>
 {/*       
+    
       <Text style={{fontSize:50, color:"red", fontWeight:'900', textAlign:'center'}}>
         Hello World!
       </Text>
@@ -69,14 +74,16 @@ export default function Index(){
       </View> */}
         
         <View style={{marginTop:40, gap:20}}>
-        <Input type={'default'} label={'Full Name'} placeholder={'Enter your Full Name'}/>
+        <Input type={'default'} label='Full Name' placeholder={'Enter your Full Name'}/>
         <Input type={'email-address'} label='Email Address' placeholder={'Enter your Email Address'}/>
         <Input type={'number-pad'} label='Phone Number' placeholder={"Enter your Phone Number"}/>
         
-        <Pressable onPress={()=>{
-          Alert.alert("I was clicked", `I am on ${Platform.OS} device!`)
+        <Pressable style={{height:50, backgroundColor:'orange',
+          justifyContent:'center', borderRadius:8
+        }} onPress={()=>{
+          router.push('./home')
         }}>
-          <Text>Click Me!</Text>
+          <Text style={{Color:'white', alignSelf:'center'}}>Sign Up!</Text>
         </Pressable>
 
         </View>
