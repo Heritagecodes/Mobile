@@ -2,7 +2,7 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { Platform, Pressable, SafeAreaView, ScrollView, Text, View } from 'react-native';
 import Input from '../components/input';
-
+import Post from '../components/post';
 
 export default function Index(){
 
@@ -87,6 +87,11 @@ export default function Index(){
         </Pressable>
 
         </View>
+        <Post title={'Why is the earth round?'} body={'This is because God created it so'} image={require('../../assets/images/icon.png')}/>
+        <Post title={'How do cows produce milk?'} body={'Cows produce milk after giving birth to their calves'} image={require('../../assets/images/favicon.png')}/>
+        <Post title={'Why is the earth round?'} body={'The earth is round because of the force of gravity'} image={require('../../assets/images/react-logo.png')}/>
+        <Post title={'Why is the earth round?'} body={'The earth is round because of the force of gravity'} image={require('../../assets/images/splash-icon.png')}/>
+        <Post title={'Why is the earth round?'} body={'The earth is round because of the force of gravity'} image={require('../../assets/images/partial-react-logo.png')}/>
     </SafeAreaView>
     </ScrollView>
   )
